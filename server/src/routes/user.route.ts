@@ -3,12 +3,12 @@ import { HandlerReturn } from '../types/RouteHandler';
 import { userController } from '../controllers';
 import { expressHandlerWrapper } from '../frameworks/express/handlerWrapper';
 
-async function createUserHandler(req): Promise<HandlerReturn> {
+async function createUserHandler(req: express.Request): Promise<HandlerReturn> {
     const result = await userController.createUser(req);
     return result;
 }
 
-async function changePasswordHandler(req): Promise<HandlerReturn> {
+async function changePasswordHandler(req: express.Request): Promise<HandlerReturn> {
     const result = await userController.changePassword(req);
     return result;
 }

@@ -3,7 +3,7 @@ import { HandlerReturn } from '../types/RouteHandler';
 import { starController } from '../controllers';
 import { expressHandlerWrapper } from '../frameworks/express/handlerWrapper';
 
-async function createStarHandler(req): Promise<HandlerReturn> {
+async function createStarHandler(req: express.Request): Promise<HandlerReturn> {
     const result = await starController.createStar(req);
     return result;
 }

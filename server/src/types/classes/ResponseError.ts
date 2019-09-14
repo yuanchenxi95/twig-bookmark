@@ -11,7 +11,7 @@ export interface ResponseError {
     payload?: any;
 }
 
-export function isResponseError(data): boolean {
+export function isResponseError(data: any): boolean {
     const responseError = data as ResponseError;
 
     return !isNil(responseError) && isNumber(responseError.statusCode) && isString(responseError.message);

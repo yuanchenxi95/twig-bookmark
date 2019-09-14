@@ -1,3 +1,4 @@
+import Express from 'express';
 
 import { Log } from '../logging';
 import { formatResponse, ResponseData } from './responseFormatter';
@@ -33,7 +34,8 @@ export function handleError(error: Error): ResponseData {
  * @param res
  * @param next
  */
-export function expressErrorHandler(error, req, res, next): void {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function expressErrorHandler(error: Error, req: Express.Request, res: Express.Response, next: Express.NextFunction): void {
     logError(error);
     logError(new Error('expressErrorHandler() is executed, errorWrapper failed to capture the previous error.'));
     if (res.headersSent) {

@@ -8,6 +8,7 @@
     "experimentalDecorators": true,
     "target": "ES2019",
     "sourceMap": true,
+    "noImplicitAny": true,
     "moduleResolution": "node",
     "outDir": "./dist",
     "baseUrl": "./",

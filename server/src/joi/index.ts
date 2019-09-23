@@ -21,7 +21,10 @@ export function joiValidate<T>(joiSchema: Joi.Schema, body: T): ValidationResult
 }
 
 export function createJoiResponseError(error: Joi.ValidationError): ResponseError {
-    const JOI_VALIDATION_ERROR_RESPONSE_ERROR: ResponseError = Object.assign({ payload: error }, JOI_VALIDATION_ERROR);
+    const JOI_VALIDATION_ERROR_RESPONSE_ERROR: ResponseError = {
+        payload: error,
+        ...JOI_VALIDATION_ERROR,
+    };
 
     return JOI_VALIDATION_ERROR_RESPONSE_ERROR;
 }

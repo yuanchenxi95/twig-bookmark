@@ -3,7 +3,7 @@ module.exports =  {
   parser:  '@typescript-eslint/parser',  // Specifies the ESLint parser
   extends:  [
     'plugin:@typescript-eslint/recommended',  // Uses the recommended rules from the @typescript-eslint/eslint-plugin
-    'airbnb-typescript',
+    'airbnb-base',
   ],
   env: {
     browser: true,
@@ -13,6 +13,15 @@ module.exports =  {
   parserOptions:  {
     ecmaVersion:  2018,  // Allows for the parsing of modern ECMAScript features
     sourceType:  'module',  // Allows for the use of imports
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: [
+            '.js', '.ts',
+        ]
+      }
+    }
   },
   rules: {
     // '@typescript-eslint/no-parameter-properties': [
@@ -73,5 +82,14 @@ module.exports =  {
       'error',
       4,
     ],
+    'indent': [
+        'off',
+    ],
+    '@typescript-eslint/explicit-function-return-type': [
+      'error',
+    ],
+    '@typescript-eslint/no-explicit-any': [
+        'off',
+    ]
   },
 };

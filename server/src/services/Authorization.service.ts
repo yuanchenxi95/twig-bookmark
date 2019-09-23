@@ -8,5 +8,4 @@ export class AuthorizationService extends BaseService {
     constructor(private readonly userDao: UserDao) {
         super();
     }
-
 }

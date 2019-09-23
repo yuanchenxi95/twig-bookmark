@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "./build/",
+    "esModuleInterop": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "es6",
+    "moduleResolution": "node",
+    "target": "es6",
+    "jsx": "react",
+    "allowJs": true
+  }
+}

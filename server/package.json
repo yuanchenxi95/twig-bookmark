@@ -27,7 +27,7 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "mongodb": "^3.3.2",
-    "mongoose": "^5.7.1",
+    "mongoose": "^5.7.5",
     "winston": "^3.2.1"
   },
   "devDependencies": {

@@ -14,11 +14,14 @@ services:
   mongo:
     image: mongo:latest
     container_name: "twig-bookmark"
+    restart: always
     environment:
     - MONGO_DATA_DIR=/data/db
     - MONGO_LOG_DIR=/dev/null
+    - MONGO_INITDB_ROOT_USERNAME=admin
+    - MONGO_INITDB_ROOT_PASSWORD=admin
     volumes:
     - ./data/db:/data/db
     ports:
     - 27017:27017
-    command: mongod --logpath=/dev/null # --quiet
+    command: mongod # --logpath=/dev/null # --quiet

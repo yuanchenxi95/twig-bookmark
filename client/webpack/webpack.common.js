@@ -22,7 +22,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts(x?)$/,
         use: 'ts-loader',
         exclude: /node_modules/
       },
@@ -82,7 +82,7 @@ module.exports = {
     alias: {
       src: srcPath,
     },
-    extensions: ['mjs', '.js', '.jsx', '.json', 'ts', 'tsx'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
   },
   optimization: {
     splitChunks: {

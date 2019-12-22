@@ -11,6 +11,12 @@
     "moduleResolution": "node",
     "target": "es6",
     "jsx": "react",
-    "allowJs": true
-  }
+    "allowJs": true,
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "./src"
+  ]
 }

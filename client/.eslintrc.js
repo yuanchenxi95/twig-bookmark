@@ -1,20 +1,23 @@
 module.exports = {
     env: {
-        'browser': true,
-        'commonjs': true,
-        'es6': true,
-        'node': true
+        browser: true,
+        commonjs: true,
+        es6: true,
+        node: true,
     },
-    plugins: [
-        '@typescript-eslint',
-        'react',
-    ],
+    plugins: ['@typescript-eslint', 'react'],
     parser: '@typescript-eslint/parser',
+    parserOptions: {
+        ecmaVersion: 2018,
+        sourceType: 'module',
+    },
     extends: [
         'plugin:react/recommended',
+        // 'airbnb',
         'plugin:@typescript-eslint/eslint-recommended',
-        'airbnb',
         'plugin:@typescript-eslint/recommended',
+        'plugin:prettier/recommended',
+        'prettier/react',
     ],
     settings: {
         // Append 'ts' extensions to Airbnb 'import/resolver' setting
@@ -27,76 +30,12 @@ module.exports = {
         'import/extensions': ['.js', '.ts', 'tsx', '.mjs'],
     },
     rules: {
-        '@typescript-eslint/no-parameter-properties': [
-            'off',
-        ],
-        '@typescript-eslint/explicit-member-accessibility': [
-            'off',
-        ],
-        'object-curly-newline': [
-            'error',
-            {
-                // 'ObjectExpression': { 'multiline': true, 'minProperties': 3 },
-                // 'ObjectPattern': { 'multiline': true, 'minProperties': 3 },
-                // 'ObjectExpression': 'always',
-                // 'ObjectPattern': 'always',
-                'ImportDeclaration': { 'multiline': true, 'minProperties': 3 },
-                'ExportDeclaration': { 'multiline': true, 'minProperties': 3 },
-            },
-        ],
-        'object-property-newline': [
-            'error',
-            {
-                'allowAllPropertiesOnSameLine': false,
-            },
-        ],
-        'import/prefer-default-export': [
-            'off',
-        ],
-        'class-methods-use-this': [
-            'off',
-        ],
-        '@typescript-eslint/no-unused-vars': [
-            'error',
-            {
-                'args': 'all',
-            }
-        ],
-        'no-useless-constructor': [
-            'off',
-        ],
-        'no-empty-function': [
-            'error',
-            {
-                'allow': [ 'constructors' ],
-            }
-        ],
-        'max-len': [
-            'error',
-            { 'code': 120 },
-        ],
-        // '@typescript-eslint/indent': [
-        //     'error',
-        //     4,
-        // ],
-        // 'indent': [
-        //     'error',
-        //     4,
-        // ],
-        '@typescript-eslint/explicit-function-return-type': [
-            'error',
-        ],
         'react/jsx-filename-extension': [
             'error',
             {
-                'extensions': [
-                    '.js',
-                    '.jsx',
-                    '.tsx',
-                    '.ts',
-                ]
+                extensions: ['.js', '.jsx', '.tsx', '.ts'],
             },
         ],
-
+        // 'import/prefer-default-export': 0,
     },
 };

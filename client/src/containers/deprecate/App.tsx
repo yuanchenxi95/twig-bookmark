@@ -1,20 +1,19 @@
 import React, { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'antd';
-import { translationKeys, languages } from '../i18n';
+import { translationKeys, languages } from '../../i18n';
+import { Person } from './Person';
 
 export function AppContainer(): ReactElement {
     const { t, i18n } = useTranslation();
 
-    function changeLang() {
-        i18n.changeLanguage(languages.zh).then(res => {
-            console.log(i18n.language);
-            console.log(i18n.languages);
-            console.log(t(translationKeys.welcome));
-        });
+    async function changeLang(): Promise<void> {
+        await i18n.changeLanguage(languages.zh);
     }
+
     return (
         <div>
+            <Person />
             <Button onClick={changeLang}>Change</Button>
             {t(translationKeys.welcome)}
         </div>

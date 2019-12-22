@@ -20,6 +20,9 @@ module.exports = {
         'prettier/react',
     ],
     settings: {
+        'react': {
+            'version': 'detect',
+        },
         // Append 'ts' extensions to Airbnb 'import/resolver' setting
         'import/resolver': {
             node: {

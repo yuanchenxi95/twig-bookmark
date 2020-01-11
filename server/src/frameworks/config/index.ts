@@ -50,18 +50,18 @@ export class Config {
     private static validateInput(envConfig: EnvConfig): EnvConfig {
         const envVarsSchema: Joi.ObjectSchema = Joi.object({
             NODE_ENV: Joi.string()
-                .valid([
+                .valid(
                     NODE_ENV_ENUM.development,
                     NODE_ENV_ENUM.production,
                     NODE_ENV_ENUM.test,
-                ])
+                )
                 .default(DEFAULT_CONFIG.NODE_ENV),
             // API_AUTH_ENABLED: Joi.boolean().required(),
             PORT: Joi.alternatives()
-                .try([
+                .try(
                     Joi.number().port(),
                     Joi.string(),
-                ])
+                )
                 .default(DEFAULT_CONFIG.PORT),
             SECRET: Joi.string().required(),
             DATABASE_URL: Joi.string().required(),
@@ -70,9 +70,8 @@ export class Config {
         const {
             error,
             value: validatedEnvConfig,
-        } = Joi.validate(
+        } = envVarsSchema.validate(
             envConfig,
-            envVarsSchema,
         );
         if (error) {
             throw new Error(`Config validation error: ${error.message}`);

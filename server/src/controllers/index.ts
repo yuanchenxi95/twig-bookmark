@@ -3,7 +3,7 @@ import {
     authorizationService,
     userService,
     starService,
-} from '../services/index';
+} from '../services';
 import { AuthenticationController } from './Authentication.controller';
 import { UserController } from './User.controller';
 import { StarController } from './Star.controller';

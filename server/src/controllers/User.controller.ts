@@ -4,7 +4,7 @@ import { BaseController } from './Base.controller';
 
 import {
     UserService, AuthorizationService, AuthenticationService,
-} from '../services/index';
+} from '../services';
 
 import { UserOutputDto } from '../dtos/User.dto';
 import { joiRequestValidation } from '../joi';

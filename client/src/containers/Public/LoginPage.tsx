@@ -5,16 +5,28 @@ import { Button, Typography } from 'antd';
 
 import { translationKeys } from '../../i18n';
 import { MyStore } from '../../stores';
+import { setUserDataFnc } from '../../stores/authentication';
+import {loginRequest} from '../../api/methods/authentication';
+import {errorNotification} from '../../components/notification';
 
 interface LoginPageProps {
-    login: () => void;
+    setUserData: setUserDataFnc;
 }
 
 function container(props: LoginPageProps): React.ReactElement {
-    const { login } = props;
+    const { setUserData } = props;
 
     const { t } = useTranslation();
     const { login: loginKey } = translationKeys;
+
+    console.log('hello');
+    async function loginFnc() {
+        try {
+            const data = await loginRequest('hello', '1111');
+        } catch (e) {
+            errorNotification(e.message);
+        }
+    }
 
     return (
         <div>
@@ -22,7 +34,7 @@ function container(props: LoginPageProps): React.ReactElement {
             <Button
                 onClick={(e): void => {
                     e.preventDefault();
-                    login();
+                    loginFnc();
                 }}
             >
                 {t(loginKey)}
@@ -33,8 +45,8 @@ function container(props: LoginPageProps): React.ReactElement {
 
 function injectFn(stores: MyStore): LoginPageProps {
     const { authentication } = stores;
-    const { login } = authentication;
-    return { login };
+    const { setUserData } = authentication;
+    return { setUserData };
 }
 
 export const LoginPage = inject(injectFn)(observer(container));

@@ -17,7 +17,7 @@ import {
 } from '../utils/jwt';
 import { JWTOutputDto } from '../types/output/authentication.dto';
 import { X_ACCESS_TOKEN } from '../constants/headers';
-import { UserDao } from '../daos/User.dao';
+import { UserDao } from '../daos';
 
 export class AuthenticationService extends BaseService {
     constructor(private readonly userDao: UserDao) {

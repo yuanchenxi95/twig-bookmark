@@ -9,14 +9,16 @@ export enum ResponseStatus {
     error = 'error',
 }
 
-export interface ResponseData {
+type ResponseData = any;
+
+export interface ResponseType {
     status: ResponseStatus;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    data?: any;
+    data?: ResponseData;
     error?: ResponseError;
 }
 
-export function formatResponse(error?: ResponseError, result?: BaseDto): ResponseData {
+export function formatResponse(error?: ResponseError, result?: BaseDto): ResponseType {
     if (!isNil(error)) {
         return {
             status: ResponseStatus.error,

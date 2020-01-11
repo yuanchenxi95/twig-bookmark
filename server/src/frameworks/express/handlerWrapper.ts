@@ -5,13 +5,13 @@ import { isNil } from 'lodash';
 import { compose } from 'lodash/fp';
 
 import { RouteHandler, HandlerReturn } from '../../types/RouteHandler';
-import { formatResponse, ResponseData } from './responseFormatter';
+import { formatResponse, ResponseType } from './responseFormatter';
 import { handleError } from './errorHandler';
 import { isResponseError, ResponseError } from '../../types/classes/ResponseError';
 import { BaseDto } from '../../dtos/Base.dto';
 
 
-function handlerFnResult(fnResult: HandlerReturn): ResponseData {
+function handlerFnResult(fnResult: HandlerReturn): ResponseType {
     if (isNil(fnResult)) {
         return formatResponse(null, null);
     } if (isResponseError(fnResult)) {

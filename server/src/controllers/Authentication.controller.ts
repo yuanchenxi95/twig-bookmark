@@ -2,12 +2,12 @@ import { Request } from 'express';
 import { isNil } from 'lodash';
 
 import { BaseController } from './Base.controller';
-import { UserInputDto } from '../types/input/user.dto';
+import { LoginInputDto } from '../types/input/user.dto';
 import { createJoiResponseError, joiValidate } from '../joi';
 import { loginJoiSchema } from '../joi/schemas/user.joi';
 import { ValidationException } from '../exceptions/ValidationException';
 import { JWTOutputDto } from '../types/output/authentication.dto';
-import { AuthenticationService } from '../services/index';
+import { AuthenticationService } from '../services';
 
 export class AuthenticationController extends BaseController {
     constructor(
@@ -17,7 +17,7 @@ export class AuthenticationController extends BaseController {
     }
 
     async login(req: Request): Promise<JWTOutputDto> {
-        const validationResult = joiValidate<UserInputDto>(loginJoiSchema, req.body);
+        const validationResult = joiValidate<LoginInputDto>(loginJoiSchema, req.body);
 
         const { error, value } = validationResult;
 

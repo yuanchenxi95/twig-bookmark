@@ -1,7 +1,7 @@
 import Express from 'express';
 
 import { Log } from '../logging';
-import { formatResponse, ResponseData } from './responseFormatter';
+import { formatResponse, ResponseType } from './responseFormatter';
 import { BaseException } from '../../exceptions/BaseException';
 import { UNKNOWN_SERVER_ERROR } from '../../constants/errors';
 
@@ -15,7 +15,7 @@ export function unknownErrorHandler(error: Error): Error {
 }
 
 
-export function handleError(error: Error): ResponseData {
+export function handleError(error: Error): ResponseType {
     // known Error
     if (error instanceof BaseException) {
         return formatResponse((error as BaseException).responseError);
